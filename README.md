@@ -1,4 +1,4 @@
-# Bem vindo ao Teste!
+# Bem vindo ao Tester!
 
 O Tester é uma ferramenta de teste de software, criado no Microsoft Visual Foxpro 9.0
 
