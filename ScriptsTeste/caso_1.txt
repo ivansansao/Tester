@@ -1,0 +1,181 @@
+**
+** CRIAR UMA NOVA O.S SEGURADORA S/ DESCONTO                                                                      
+**
+
+ExecTestReset()
+
+** Chama a tela de lista de O.S
+ExecTest("Do ChamaListaOSGUI")
+
+** Aguarda a tela abrir
+WAITFORWINDOW("ListaOrdemServicoGui")
+
+	** Cria uma nova O.S
+	ExecTest("form.Pf1.Page2.botNovo.Click()")
+
+	** Define um tipo de O.S
+	ExecTest("form.PF1.PAGE1.CMBTIPOOS.SetFocus()")
+	ExecTest("form.PF1.PAGE1.CMBTIPOOS.Value = 8")
+	ExecTest("form.PF1.PAGE1.CMBTIPOOS.Valid()")
+
+	** Define um veículo
+	ExecTest("form.PF1.PAGE1.TXTCODVEI_OSE.SetFocus()")
+	ExecTest("form.PF1.PAGE1.TXTCODVEI_OSE.Value = 276098")
+	ExecTest("form.PF1.PAGE1.TXTCODVEI_OSE.Valid()")
+
+	** Nivel do tanque
+	ExecTest("form.PF1.PAGE1.OPCNIVELCOMBUSTIVEL1.OPTION4.SetFocus()")
+	ExecTest("form.PF1.PAGE1.OPCNIVELCOMBUSTIVEL1.OPTION4.Value = .T.")
+	ExecTest("form.PF1.PAGE1.OPCNIVELCOMBUSTIVEL1.OPTION4.Valid()")
+
+	** Define o cliente
+	ExecTest("form.PF1.PAGE1.TXTCODCLI_OSE.SetFocus()")
+	ExecTest("form.PF1.PAGE1.TXTCODCLI_OSE.Value = 4746")
+	ExecTest("form.PF1.PAGE1.TXTCODCLI_OSE.Valid()")
+
+	** Define o consultor
+	ExecTest("form.PF1.PAGE1.TXTCODCON_OSE.SetFocus()")
+	ExecTest("form.PF1.PAGE1.TXTCODCON_OSE.Value = 22")
+	ExecTest("form.PF1.PAGE1.TXTCODCON_OSE.Valid()")
+
+	** Define a data de entrada
+	ExecTest("form.PF1.PAGE1.CAIXA_DH1.SetFocus()")
+	ExecTest("keyboard '{A}'")
+	Sleep(8000)
+
+	** Define a data de saída
+	ExecTest("form.PF1.PAGE1.CAIXA_DH2.SetFocus()")
+	ExecTest("keyboard '{A}'")
+
+	** Define KM de saida
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX8.SetFocus()")
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX8.Value = 1029")
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX8.Valid()")
+
+	** Define a KM de entrada
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX7.SetFocus()")
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX7.Value = 1029")
+	ExecTest("form.PF1.PAGE1.CAIXA_TEX7.Valid()")
+
+	** Solicitação do cliente
+	ExecTest("form.PF1.PAGE1.grdSolicitacaoCliente.Column8.edtSolcli_sco.SetFocus()")
+	ExecTest("form.PF1.PAGE1.grdSolicitacaoCliente.Column8.edtSolcli_sco.Value = 'Cliente informou que esta com barulho na suspencao'")
+	ExecTest("form.PF1.PAGE1.grdSolicitacaoCliente.Column8.edtSolcli_sco.Valid()")
+
+	** Defeito averiguado
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI2.SetFocus()")
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI2.Value = 'Foi constatado problema nos amortecedores dianteiro e traseiro'")
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI2.Valid()")
+
+	** Avarias
+	ExecTest("form.PF1.PAGE1.TXTAVARIA_OSE.SetFocus()")
+	ExecTest("form.PF1.PAGE1.TXTAVARIA_OSE.Value = 'Riscos no parachoque traseiro'")
+	ExecTest("form.PF1.PAGE1.TXTAVARIA_OSE.Valid()")
+
+	** Observações
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI3.SetFocus()")
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI3.Value = 'Realizado pelo tester'")
+	ExecTest("form.PF1.PAGE1.CAIXA_EDI3.Valid()")
+
+	** Passa para a Aba de peça
+	ExecTest("form.PF1.PAGE2.click()")
+
+	** Adiciona a primeira peça
+	ExecTest("form.PF1.PAGE2.BTADICIONARPECA.SetFocus()")
+	ExecTest("keyboard '{ENTER}'")
+
+	** Aguarda a abertura da tela de pesquisa
+WAITFORWINDOW("pesquisa2gui")
+
+	** pesquisando pela peça
+	ExecTest(atribuir('form.pages.page1.pesquisapersonalizada.txtcodigo_pro.value',20020,'N'))
+	ExecTest("form.pages.page1.botoes.valida(1)")
+	ExecTest("form.pages.page2.botoes.valida(1)")
+
+		** Adiciona a segunda peça
+	ExecTest("form.PF1.PAGE2.BTADICIONARPECA.SetFocus()")
+	ExecTest("keyboard '{ENTER}'")
+
+** Aguarda a abertura da tela de pesquisa
+WAITFORWINDOW("pesquisa2gui")
+
+	** pesquisando pela peça
+	ExecTest(atribuir('form.pages.page1.pesquisapersonalizada.txtcodigo_pro.value',7599,'N'))
+	ExecTest("form.pages.page1.botoes.valida(1)")
+	ExecTest("form.pages.page2.botoes.valida(1)")
+
+	** Adiciona um serviço
+	ExecTest("form.PF1.PAGE2.BTADICIONARSERVICO.SetFocus()")
+	ExecTest("keyboard '{ENTER}'")
+
+** Aguarda a abertura da tela de pesquisa
+WAITFORWINDOW("pesquisa2gui")
+
+	** Pesquisando pelo serviço
+	ExecTest(atribuir('form.Pages.PAGE1.pesquisapersonalizada.txtCodigo_ser.value',19812,'N'))
+	ExecTest("form.pages.page1.botoes.valida(1)")
+
+	** Adiciona um mecânico
+	ExecTest(atribuir('form.cmbmecanico.value',3599,'N'))
+	ExecTest("form.botao_okca.botao_ok.Valid()")
+
+** Aguarda o retorno da tela de O.S
+WAITFORWINDOW("ordemservicogui")
+
+	** Clica no botão de seguro
+	ExecTest("form.BTN_sEGURO.SetFocus()")
+	ExecTest("keyboard '{ENTER}'")
+	
+** Aguarda a tela abrir
+WAITFORWINDOW("DADOSSEGUROGUI")
+
+	** Informa uma seguradora
+	ExecTest("form.txtsegcodseg_ose.SetFocus()")
+	ExecTest("form.txtsegcodseg_ose.Value = '4566'")
+	ExecTest("form.txtsegcodseg_ose.Valid()")
+
+	** Informa os dados do segurado
+	ExecTest("form.txtsegnomseg_ose.SetFocus()")
+	ExecTest("form.txtsegnomseg_ose.Value = 'Ivan Raul Sansao'")
+	ExecTest("form.txtsegnomseg_ose.Valid()")
+
+	** Informa os dados do orçamentista
+	ExecTest("form.txtsegnomvis_ose.SetFocus()")
+	ExecTest("form.txtsegnomvis_ose.Value = 'BRUNO ITALIANNI CONTI'")
+	ExecTest("form.txtsegnomvis_ose.Valid()")
+
+	** Informa o numero de autorizacao
+	ExecTest("form.txtsegnumaut_ose.SetFocus()")
+	ExecTest("form.txtsegnumaut_ose.Value = 'SG-98724'")
+	ExecTest("form.txtsegnumaut_ose.Valid()")
+
+	** Informa a data da vistoria
+	ExecTest("form.txtsegdatvis_ose.SetFocus()")
+	ExecTest("keyboard 'A'")
+	ExecTest("form.txtsegdatvis_ose.Valid()")
+
+	** Valor da franquia
+	ExecTest("form.txtsegvalfra_ose.SetFocus()")
+	ExecTest("form.txtsegvalfra_ose.Value = '80'")
+	ExecTest("form.txtsegvalfra_ose.Valid()")
+
+	** Valor do desconto
+	ExecTest("form.txtSegdesfra_ose.SetFocus()")
+	ExecTest("form.txtSegdesfra_ose.Value = '10'")
+	ExecTest("form.txtSegdesfra_ose.Valid()")
+
+	** Sinistro
+	ExecTest("form.txtSegsin_ose.SetFocus()")
+	ExecTest("form.txtSegsin_ose.Value = 'SIN-10102'")
+	ExecTest("form.txtSegsin_ose.Valid()")
+
+	** Grava os dados do seguro
+	ExecTest("form.Btmokca1.botao_ok.SetFocus()")
+	ExecTest("keyboard '{ENTER}'")
+
+** Aguarda o retorno da tela de O.S
+WAITFORWINDOW("ordemservicogui")
+
+	** salva o registro
+	ExecTest("oNavegacao.Bt_Go.Valid()")
+	
