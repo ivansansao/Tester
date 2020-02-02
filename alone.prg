@@ -1,4 +1,4 @@
-*!*	Author: Luiz Henrique Bosse
+*!*	Author: Luiz H. Bosse / Ivan Sansão
 *!*	Creation: 08/06/2016
 
 **** ATENÇÃO *** As funções dentro desse arquivo não podem ter dependências de outros arquivos do FoxPro.
